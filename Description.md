@@ -9,7 +9,7 @@
 - omini万矿系列全套汉化完善：基于最新版本汉化
 - Yuoki汉化完善：基于最新版本汉化
 - 5Dim系列汉化：基于最新版本汉化
-- 汉化最新版：太空探索，RPG System ，YARM资源监控
+- 汉化最新版：太空探索，跃迁，RPG System ，YARM资源监控
 - 添加：BeastFinder：寻龙尺，RateCalculator：速率计算器，还有其他的一些辅助mod
 
 ### 贡献指南
