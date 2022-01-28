@@ -1,13 +1,16 @@
 {
   "name": "chinese",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "title": "开源中文汉化语言包",
   "author": "plexpt, NaClfish",
   "contact": "QQ：1125094786，贴吧群：389390147",
   "homepage": "https://github.com/plexpt",
-  "description": "开源汉化文本库，基于重置版制作，重点校对汉化下载量排名前500的mod。实时更新失效的翻译。",
+  "description": "开源汉化文本库，基于重置版制作，重点校对汉化下载量排名前500的mod。实时更新失效的翻译。具体更新内容可以查看更新日志和mod详情页。专用汉化请在依赖列表按需下载。",
   "factorio_version": "1.1",
   "dependencies": [
-    "!zhcnremake"
+    "! zhcnremake",
+    "? pychinese",
+    "? IndustrialRevolution_Language_Pack",
+    "? SchallLanguagePack"
   ]
 }
