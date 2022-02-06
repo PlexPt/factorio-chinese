@@ -1,12 +1,23 @@
 ﻿---------------------------------------------------------------------------------------------------
-Version: 1.1.5
-Date: 2022-1-28
+Version: 1.1.7
+Date: 2022-2-6
 
   更新校对:
-    - 大怪兽
+    - 均匀放置 even-distribution
+    - 缩地成厘 far-reach
+    - 大怪兽 Big-Monsters
+    - combat-mechanics-overhaul 战斗机械修正
+    - warptorio2_expansion 星际跃迁者：时空之旅
+    - team_competition 团队竞技
 
   新增:
-    - 采矿自动规划
+    - 探照灯塔
+    - 戴森球 dyson-sphere
+    - 微缩装甲模块 Tiny_Equipment
+    - 采矿自动规划 mining-patch-planner
+    - 统计GUI （StatsGui K2作者出品）
+    - 带机器人快速开局 （RobotQuickStart）
+    - 巨多机器人快速开局 （MegaBotStart）
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.5
