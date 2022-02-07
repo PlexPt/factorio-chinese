@@ -6,6 +6,7 @@ Date: 2022-2-6
     - 均匀放置 even-distribution
     - 传送带均衡器
     - 太空探索 SE
+    - KS发电扩展
     - 缩地成厘 far-reach
     - 大怪兽 Big-Monsters
     - combat-mechanics-overhaul 战斗机械修正
