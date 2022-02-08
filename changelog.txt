@@ -12,6 +12,8 @@ Date: 2022-2-7
     - 全自动铺轨机 [FARL]
     - 合并箱 WideChests
     - 植入摄像机
+    - 模块化炮塔
+    - 终结者武装
     - 太空矿业2：矿业时空
     - 缩地成厘 far-reach
     - 大怪兽 Big-Monsters
