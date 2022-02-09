@@ -22,6 +22,7 @@ Date: 2022-2-7
   新增:
     - 戴森球 dyson-sphere
     - 探照灯塔
+    - 运输车公路网格
     - 故事任务 - [场景包] Story-Missions
     - 巨龙工业 - Nauvis 分部
     - 地热能源 Geothermal
