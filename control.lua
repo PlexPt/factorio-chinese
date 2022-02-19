@@ -1,33 +1,12 @@
-local n = {
-    {"aspd199","马老师"},
-    {"guoguomiao","果果喵"},
-    {"rct3onyxia","奥妮克希亚"},
-    {"senolyusan","阁主"},
-    {"woniubbg","小公猪"},
-    {"ziyandechengguan","紫血咸鱼"},
-    {"xiaomimisha","小米米沙"},
-	{"Junshi","君弑"},
-	{"pottor1","破特"},
-	{"Mark416","马克"},
-	{"11123456","核平模式"},
-	{"vaou","大头希希"},
-	{"fang523","昉fang"},
-	{"factorioandmods","小渣渣"},
-	{"blueheart42","冷月"},
-	{"knjack","杠精"},
-	{"kingvigor","过河拆桥，卸磨杀驴，念完经打和尚，吃饱了就打厨子"},
-	{"pigbat","蝙蝠猪"},
-	{"anye77","死妈玩意"}
-}
+script.on_event(defines.events.on_player_joined_game, function(event)
 
-script.on_event(defines.events.on_player_created, function(event)
+    local player = game.players[event.player_index]
+    if player then
 
-    local index = event.player_index
-    local player = game.players[index]
+        local msg = "欢迎使用[color=#B57FB3]开源中文汉化语言包[/color]，翻译有任何问题可加群反馈: 830846580 \n有其他想汉化的mod也可联系"
 
-    for _, pair in pairs(n) do
-        if player.name == pair[1] then
-            player.tag = "[color=blue]["..pair[2].."][/color]"
+        if msg then
+            player.print(msg)
         end
     end
 
