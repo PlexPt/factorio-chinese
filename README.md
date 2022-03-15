@@ -12,3 +12,8 @@
 2. Github 不能上的可以使用国内的Gitee镜像 https://gitee.com/plexpt/factorio-chinese
 3. 不会Git的，可以在任何能联系到我的渠道提交问题和更新
 4. 文件命名为mod的 name字段.cfg， 不用带版本号
+
+## Acknowledgements
+
+Thanks to [JetBrains](https://www.jetbrains.com/?from=mirai) for allocating free open-source licences for IDEs such as [IntelliJ IDEA](https://www.jetbrains.com/idea/?from=plexpt).  
+[<img src=".github/jetbrains-variant-3.png" width="200"/>](https://www.jetbrains.com/?from=mirai)
