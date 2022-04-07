@@ -1,14 +1,14 @@
 {
   "name": "chinese",
-  "version": "1.1.42",
+  "version": "1.1.43",
   "title": "开源中文汉化语言包",
   "author": "plexpt",
   "contact": "QQ：1125094786，汉化群：830846580",
   "homepage": "https://github.com/plexpt",
-  "description": "开源汉化文本库，基于重置版制作，下载量大于1000的mod已全部汉化。\n实时更新失效的翻译。\n目前已包含全站mod描述汉化和大量mod更新。\n具体更新内容可以查看更新日志和mod详情页。\n专用汉化请在依赖列表按需下载。\n[color=red]注意：和重制版不能同时使用，会导致互相覆盖，最终的显示的文本乱七八糟的，没人看得懂[/color]\n模组汉化群：830846580",
+  "description": "开源汉化文本库，基于zhcnremake制作，更新校对了1000+个mod的汉化。\n目前下载量大于1000的mod已全部汉化。\n已包含全站mod描述汉化和大量mod更新。\n具体更新内容可以查看更新日志和mod详情页。\n实时更新失效的翻译。\n专用汉化请在依赖列表按需下载。\n[color=red]注意：和重制版不能同时使用，会导致互相覆盖，最终的显示的文本乱七八糟的，没人看得懂[/color]\n如果发现有问题可以加模组汉化群：830846580",
   "factorio_version": "1.1",
   "dependencies": [
-    "! zhcnremake",
+    "(?) zhcnremake",
     "? pychinese",
     "? IndustrialRevolution_Language_Pack",
     "? SchallLanguagePack"
