@@ -3,31 +3,31 @@ Version: 1.1.62
 Date: 2022-6-30
 
   新增汉化（By he5641）:
-    -生物化学 [bio-chemistry]
+    -生物化学 [Bio Chemistry]
     -星河战队虫子 [Arachnids]
-    -平衡注水 [balanced-waterfill]
+    -平衡注水 [Balanced Waterfill]
     -疼痛 [Pain]
     -太空飞船市场 [Spaceship Market]
 
   版本更新汉化：
     -nullius 汉化至1.4.0版本
-    -二哈伴侣 [dog_mod] 汉化至0.1.3版本
+    -二哈伴侣 [Dog Mod] 汉化至0.1.3版本
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.61
 Date: 2022-5-30
 
   新增汉化（By he5641）:
-    - 激光武器 [LaserWeapons]
-    - 护盾投射器 [shield-projector]
-    - Vitauh的狙击步枪 [vitauh-sniper-rifle]
-    - 多人游戏UI列表 [multiplayer-ui]
-    - k2可替换配方 [k2_vanilla_recipes]
-    - 我为树代言 [i-speak-for-the-trees]
-    - 我为树代言-v2 [i-speak-for-the-trees-v2]
-    - TJ的招牌 [TjSignBoards]
-    - 取回电线 [GetWiresBack]
-    - 虫子扩张通知 [biterexpansionnotifier]
+    - 激光武器 [Laser Weapons]
+    - 护盾投射器 [Shield Projector]
+    - Vitauh的狙击步枪 [Vitauh Sniper Rifle]
+    - 多人游戏UI列表 [Multiplayer UI]
+    - k2可替换配方 [Krastorio 2 Vanilla Recipes]
+    - 我为树代言 [I speak for the trees!]
+    - 我为树代言-v2 [I Speak for the Trees Remade]
+    - TJ的招牌 [TJ's Sign Boards]
+    - 取回电线 [Get Wires back]
+    - 虫子扩张通知 [Biter Expansion Notifications]
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.60
@@ -35,14 +35,14 @@ Date: 2022-4-30
 
   更新（By he5641）:
     - 高级渔场 [Advanced Fishing]
-    - 极限渔场 [xtreme-fishing]
+    - 极限渔场 [Xtreme Fishing]
     - 营火 [Fire Place]
-    - 激光围栏 [laserfence]
-    - 光轮摩托车 [Lightcycle]
-    - 蘑菇云 [MushroomCloud]
+    - 激光围栏 [Laser Fence]
+    - 光轮摩托车 [Light Cycle]
+    - 蘑菇云 [Mushroom Cloud]
     - 海星工厂 [SeaTorio]
-    - 多式联运集装箱 [shipping-containers]
-    - 特斯拉坦克 [TeslaTank]
+    - 多式联运集装箱 [Shipping Containers]
+    - 特斯拉坦克 [Tesla Tank]
     - 元素世界-铝 [aluminum]
     - 248k
 
