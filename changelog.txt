@@ -1,4 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.1.91
+Date: 2022-8-30
+
+  新增汉化：
+      -铁路隧道 [Railway Tunnel]
+      -高级传送带 [Advanced Belts]
+      -天然气 [Natural Gas]
+      -死亡日记 [Death Log]
+      -多人游戏计分器 [Multiplayer Scoring]
+      -虫子从哪里来 [Biter home finder]
+      -弹药警报 [Ammo Alerts]
+      -热能组装机 [Burner Assembling Machine]
+      -污染视觉 [pollution visuals]
+
+  版本更新汉化：
+      -nullius 汉化至1.5.3版本
+      -列车时刻表信号 [Train Schedule Signals] 汉化至2.1.0版本
+      -表情和语音气泡 [Emotes and Speech Bubbles] 汉化至0.2.1版本
+
+---------------------------------------------------------------------------------------------------
 Version: 1.1.90
 Date: 2022-7-30
 
