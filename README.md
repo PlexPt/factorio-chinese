@@ -3,9 +3,9 @@
 
 ### 下载地址：https://mods.factorio.com/mod/chinese
 
-1.本库原本由贴吧吧主、小吧主、贴吧群管理、汉化组成员共同维护。<br>
+1.本库原本由贴吧吧主、小吧主、贴吧群管理、汉化组成员共同维护。现由Giuhub成员维护<br>
 2.可通过官方[mod网站](https://mods.factorio.com/mod/chinese)、游戏中的模组下载页面 下载。<br>
-3.玩家可通过贴吧交流群提交mod汉化文本。<br>
+3.玩家可通过GitHub提交mod汉化文本。<br>
 4.文本库遵循GNU General Public License v3.0协议。<br>
 
 ### 贡献指南
