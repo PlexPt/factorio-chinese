@@ -17,4 +17,4 @@
 ## Acknowledgements
 
 Thanks to [JetBrains](https://www.jetbrains.com/?from=plexpt) for allocating free open-source licences for IDEs such as [IntelliJ IDEA](https://www.jetbrains.com/idea/?from=plexpt).  
-<img src="https://ftp.bmp.ovh/imgs/2021/07/7883cb70a96b6ccd.png" width="200"/>
+[<img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg" width="200"/>](https://www.jetbrains.com/?from=plexpt)
