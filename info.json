@@ -1,11 +1,11 @@
 {
   "name": "chinese",
-  "version": "1.1.90",
+  "version": "1.1.96",
   "title": "开源中文汉化语言包",
   "author": "plexpt",
   "contact": "QQ：1125094786，汉化群：830846580",
   "homepage": "https://github.com/plexpt",
-  "description": "开源汉化文本库，基于zhcnremake制作，更新校对了1000+个mod的汉化。\n目前下载量大于1000的mod已全部汉化。\n已包含全站mod描述汉化。\n具体更新内容可以查看更新日志和mod详情页。\n实时更新失效的翻译。\n已翻新：a、b、o、s、t等大型模组。\n专用汉化请在依赖列表按需下载。\n[color=red]注意：不建议和zhcnremake同时使用，会导致互相覆盖，最终的显示的文本乱七八糟的。[/color]\n如果发现有问题可以加模组汉化群：830846580",
+  "description": "\"我们的mod是一个开源的汉化文本库，专门为Factorio提供汉化。我们基于zhcnremake进行制作，并且已经校对了1000+个mod的汉化。我们的汉化覆盖了所有下载量大于1000的mod，保证您能够轻松地享受Factorio的游戏体验。您可以在我们的更新日志和mod详情页中查看最新的更新内容。如果您需要专用的汉化，可以在依赖列表中按需下载。如果您对我们的汉化感兴趣，欢迎加入我们的汉化群830846580交流讨论。\"\n\n不使用zhcnremake的原因：\n\n我们的mod不仅基于zhcnremake进行制作，还校对了1000+个mod的汉化，覆盖了所有下载量大于1000的mod。这意味着我们的mod比zhcnremake更加完善，能够为您提供更好的汉化体验。此外，我们还有专业的团队负责校对，保证汉化的质量。因此，选择我们的mod，可以让您更加轻松地享受Factorio的游戏体验。",
   "factorio_version": "1.1",
   "dependencies": [
     "(?) zhcnremake",
