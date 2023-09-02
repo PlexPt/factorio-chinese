@@ -1,5 +1,5 @@
-local my_stack_factor = settings.startup['my_stack_factor'].value
-local stack_enable = settings.startup['chinese-stack-factor'].value
+local stack_enable = settings.startup['chinese-stack'].value
+local my_stack_factor = settings.startup['chinese-stack-factor'].value
 
 function new_size(oldvalue, offset, factor)
     if oldvalue == nil then

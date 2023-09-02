@@ -57,7 +57,7 @@ script.on_event({ defines.events.on_runtime_mod_setting_changed,
 
 -- fix for https://mods.factorio.com/mod/jetpack resetting far reach settings.
 if script.active_mods["jetpack"] then
-    remote.add_interface("far-reach", {
+    remote.add_interface("chinese-reach", {
         on_character_swapped = function(event)
             --https://mods.factorio.com/mod/jetpack looks for remote interface called "on_character_swapped" specifically
             --{new_unit_number = uint, old_unit_number = uint, new_character = luaEntity, old_character = luaEntity}

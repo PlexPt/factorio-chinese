@@ -3,7 +3,7 @@
 --       Prototypes normally defined in data.lua - or data-updates.lua loaded before this - will be properly updated.
 
 -- Table of prototype types to check and the minimum gap required to allow walking in between them. Tiles are 0.5 wide. Can be set to a large value (e.g 1000) create the smallest possible collision box {{0,0},{0,0}}.
-prototype_type_gap_requirements =
+c_prototype_type_gap_requirements =
 {
 	["solar-panel"]             = 0.25,
 	["simple-entity-with-owner"]= 0.25,
@@ -50,7 +50,7 @@ prototype_type_gap_requirements =
 		                                       All prototypes from all mods of the types specified will be excluded from alteration.
 		                                       Meaning if you exclude "pump" no pumps will have their collision boxes changed.
 --]]
-exclusions =
+c_exclusions =
 {
 	{  -- General Exclusions (always applied)
 		excluded_prototype_names = {
