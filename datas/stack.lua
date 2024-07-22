@@ -1,6 +1,15 @@
 local stack_enable = settings.startup['chinese-stack'].value
 local my_stack_factor = settings.startup['chinese-stack-factor'].value
 
+local function table_contains(table, value)
+    for _, v in pairs(table) do
+        if v == value then
+            return true
+        end
+    end
+    return false
+end
+
 function new_size(oldvalue, offset, factor)
     if oldvalue == nil then
         oldvalue = 1
@@ -18,10 +27,13 @@ if stack_enable then
     for _, dat in pairs(data.raw) do
         for _, item in pairs(dat) do
             if item.stack_size and type(item.stack_size) == "number" and item.stack_size > 1 then
-                item.stack_size = new_size(item.stack_size, 0, my_stack_factor)
-                --if my_default_req_amount ~= nil then
-                --    item.default_request_amount = my_default_req_amount
-                --end
+
+                if not (item.flags and table_contains(item.flags, "not-stackable")) then
+                    item.stack_size = new_size(item.stack_size, 0, my_stack_factor)
+                    --if my_default_req_amount ~= nil then
+                    --    item.default_request_amount = my_default_req_amount
+                    --end
+                end
             end
         end
     end

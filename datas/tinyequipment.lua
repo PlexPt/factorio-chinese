@@ -6,6 +6,7 @@ if settings.startup["chinese-tiny-enable"].value then
     for _, shape in pairs(shape_list) do
         for _, equipment in pairs(data.raw[shape]) do
             if equipment.shape then
+                equipment.shape.type = "full"
                 if equipment.shape.width then
                     equipment.shape.width = 1
                 end
