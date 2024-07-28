@@ -5,6 +5,7 @@ function far_reach_apply_settings()
     if not settings.global["chinese-reach-enable"] then
         return
     end
+
     local distance = settings.global["chinese-reach-distance"].value
     for _, player in pairs(game.players) do
         if player and player.character then
