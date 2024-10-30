@@ -14,5 +14,7 @@ end)
 
 --require("runtime.gui")
 
+require("runtime.reach")
+
 require("runtime.infinite-resources")
 
