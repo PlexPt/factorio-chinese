@@ -16,5 +16,10 @@ end)
 
 require("runtime.reach")
 
+require("runtime.bag")
+
 require("runtime.infinite-resources")
 
+if script.active_mods["gvv"] then
+    require("__gvv__.gvv")()
+end

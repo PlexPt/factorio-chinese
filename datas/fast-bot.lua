@@ -23,12 +23,14 @@ local function botplus(bot)
         bot.speed_multiplier_when_out_of_energy = bot.speed_multiplier_when_out_of_energy * 10
     end
     ---------------------------------------------
+    ---    energy_per_move = "5kJ",
+    --    energy_per_tick = "0.05kJ",
     if bot.energy_per_move then
-        bot.energy_per_move = bot.energy_per_move * 0.1
+        bot.energy_per_move = "0.1kJ"
     end
     ---------------------------------------------
     if bot.energy_per_tick then
-        bot.energy_per_tick = bot.energy_per_tick * 0.1
+        bot.energy_per_tick = "0.001kJ"
     end
     ---------------------------------------------
 

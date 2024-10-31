@@ -141,3 +141,14 @@ data:extend({
         minimum_value = 0,
     }
 })
+
+--自适应背包
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-smart-bag",
+        setting_type = "runtime-global",
+        order = "zz",
+        default_value = false
+    }
+})
