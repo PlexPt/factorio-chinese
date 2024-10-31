@@ -96,6 +96,36 @@ data:extend({
 data:extend({
     {
         type = "bool-setting",
+        name = "chinese-fast-mining",
+        setting_type = "startup",
+        order = "gg",
+        default_value = false
+    }
+})
+
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-comfortable-night-vision",
+        setting_type = "startup",
+        order = "hh",
+        default_value = false
+    }
+})
+
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-fast-bot",
+        setting_type = "startup",
+        order = "II",
+        default_value = false
+    }
+})
+
+data:extend({
+    {
+        type = "bool-setting",
         name = "chinese-reach-enable",
         setting_type = "runtime-global",
         order = "dd",

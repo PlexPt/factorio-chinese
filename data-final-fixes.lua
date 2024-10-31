@@ -13,3 +13,5 @@ require("datas.stack")
 require("datas.running-speed")
 
 require("datas.pump")
+
+require("datas.fast-bot")
