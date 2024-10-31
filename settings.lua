@@ -152,3 +152,14 @@ data:extend({
         default_value = false
     }
 })
+
+--自适应背包
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-chest-auto-sort",
+        setting_type = "runtime-global",
+        order = "zd",
+        default_value = true
+    }
+})
