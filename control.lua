@@ -1,4 +1,8 @@
-script.on_event(defines.events.on_player_joined_game, function(event)
+MyEvent = require("EventDispatcher")
+chinese_debug = true
+
+
+MyEvent.on_event(defines.events.on_player_joined_game, function(event)
 
     local player = game.players[event.player_index]
     if player then
@@ -120,6 +124,8 @@ require("runtime.bag")
 require("runtime.chest-auto-sort")
 
 require("runtime.infinite-resources")
+
+require("runtime.bot-start")
 
 if script.active_mods["gvv"] then
     require("__gvv__.gvv")()

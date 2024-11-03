@@ -1,4 +1,4 @@
-local enable = settings.startup["squeakthrough-enable"].value
+local enable = settings.startup["chinese-squeakthrough-enable"].value
 if not enable then
     return
 end

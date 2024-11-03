@@ -106,7 +106,7 @@ local open = settings.global["chinese-smart-bag"] and settings.global["chinese-s
 
 if open then
 
-    script.on_event(defines.events.on_player_main_inventory_changed, function(event)
+    MyEvent.on_event(defines.events.on_player_main_inventory_changed, function(event)
         local player = game.players[event.player_index]
         if player and player.valid and player.connected and player.character then
 

@@ -19,11 +19,11 @@ if settings.startup["chinese-infinite-resources"].value then
         end
     end)
 
-    script.on_event(defines.events.on_chunk_generated, function(event)
+    MyEvent.on_event(defines.events.on_chunk_generated, function(event)
         fix_resources(event.surface, event.area)
     end)
 
-    script.on_event(defines.events.on_surface_created, function(event)
+    MyEvent.on_event(defines.events.on_surface_created, function(event)
         fix_resources(game.surfaces[event.surface_index])
     end)
 end

@@ -42,7 +42,7 @@ local function remove_mod_info_panel(player)
 end
 
 -- When player is created, add the button to their UI
-script.on_event(defines.events.on_player_created, function(event)
+MyEvent.on_event(defines.events.on_player_created, function(event)
     local player = game.players[event.player_index]
     create_mod_info_button(player)
 end)
@@ -65,5 +65,5 @@ local function on_gui_click(event)
 end
 
 -- Handle GUI clicks
-script.on_event(defines.events.on_gui_click, on_gui_click)
-script.on_event(defines.events.on_player_joined_game, on_gui_click)
+MyEvent.on_event(defines.events.on_gui_click, on_gui_click)
+MyEvent.on_event(defines.events.on_player_joined_game, on_gui_click)

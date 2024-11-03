@@ -1,7 +1,7 @@
 data:extend({
     {
         type = "bool-setting",
-        name = "squeakthrough-enable",
+        name = "chinese-squeakthrough-enable",
         order = "aa",
         setting_type = "startup",
         default_value = false,
@@ -14,7 +14,7 @@ data:extend({
         name = "chinese-tree-enable",
         order = "bb",
         setting_type = "startup",
-        default_value = true,
+        default_value = false,
     }
 })
 
@@ -153,7 +153,7 @@ data:extend({
     }
 })
 
---自适应背包
+-- 自动排序
 data:extend({
     {
         type = "bool-setting",
@@ -161,5 +161,17 @@ data:extend({
         setting_type = "runtime-global",
         order = "zd",
         default_value = true
+    }
+})
+
+-- 机器人开局
+data:extend({
+    {
+        type = "string-setting",
+        name = "chinese-bot-start",
+        setting_type = "runtime-global",
+        order = "jiqi",
+        allowed_values = {"关闭", "简易", "豪华", "尊享"},
+        default_value = "关闭"
     }
 })
