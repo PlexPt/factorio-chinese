@@ -1,4 +1,6 @@
-local botCount = 1
+storage.chinese_botCount = 1
+
+
 -- 配置文件
 local Config = {
     -- 基础装备原型定义
@@ -26,11 +28,12 @@ local Config = {
     ExtendedArmorModules = {
         { Name = "fission-reactor-equipment", Count = 8 },
         { Name = "personal-roboport-mk2-equipment", Count = 8 },
-        { Name = "battery-mk2-equipment", Count = 4 },
+        { Name = "battery-mk2-equipment", Count = 8 },
         { Name = "energy-shield-mk2-equipment", Count = 8 },
-        { Name = "exoskeleton-equipment", Count = 4 },
-        { Name = "personal-laser-defense-equipment", Count = 4 },
+        { Name = "exoskeleton-equipment", Count = 8 },
+        { Name = "personal-laser-defense-equipment", Count = 8 },
         { Name = "night-vision-equipment", Count = 1 },
+        { Name = "belt-immunity-equipment", Count = 1 },
     }
 }
 
@@ -76,28 +79,19 @@ local ModManager = {
 
     -- 处理模组兼容性
     processMods = function(self)
-
-        -- Space Age 模组兼容
-        if script.active_mods["space-age"] then
-            self:processSpaceAge()
-        end
-        -- Bob's Equipment 模组兼容
-        if script.active_mods["bobequipment"] then
-            self:processBobEquipment()
-        end
-
-        -- Bob's Logistics 模组兼容
-        if script.active_mods["boblogistics"] then
-            self.currentItems["Robot"] = "bob-construction-robot-5"
-        end
-
-
-        -- Krastorio2 模组兼容
-        if script.active_mods["Krastorio2"] then
-            self:processKrastorio2()
-            -- Bob's Warfare 模组兼容
-        elseif script.active_mods["bobwarfare"] then
-            self:processBobWarfare()
+        local modProcessors = {
+            ["space-age"] = self.processSpaceAge,
+            ["bobequipment"] = self.processBobEquipment,
+            ["boblogistics"] = function()
+                self.currentItems["Robot"] = "bob-construction-robot-5"
+            end,
+            ["Krastorio2"] = self.processKrastorio2,
+            ["bobwarfare"] = self.processBobWarfare
+        }
+        for modName, processor in pairs(modProcessors) do
+            if script.active_mods[modName] then
+                processor(self)
+            end
         end
     end,
 
@@ -190,7 +184,7 @@ local ArmorManager = {
             Utils.log("错误: 无效的玩家")
             return
         end
-
+        --  game.player.get_inventory(defines.inventory.character_armor)[1].grid.put({ name = "personal-laser-defense-equipment" })
         local armorInventory = player.get_inventory(defines.inventory.character_armor)
         if not armorInventory then
             Utils.log("警告: 玩家 " .. player.name .. " 没有装备栏")
@@ -216,19 +210,9 @@ local ArmorManager = {
     insertStartingItems = function(self, player)
         -- 插入建设机器人
         if Utils.validateItem(ModManager.currentItems["Robot"]) then
-            player.insert {
-                name = ModManager.currentItems["Robot"],
-                count = botCount
-            }
+            player.insert { name = ModManager.currentItems["Robot"], count = storage.chinese_botCount }
         end
 
-        -- 插入燃料(如果需要)
-        --if ModManager.currentItems["Fuel"] ~= "" and Utils.validateItem(ModManager.currentItems["Fuel"]) then
-        --    player.insert{
-        --        name = ModManager.currentItems["Fuel"],
-        --        count = 80
-        --    }
-        --end
     end,
 
     -- 清理现有装备
@@ -278,18 +262,15 @@ local ArmorManager = {
 
 local function check_bot_level()
     local botLevel = settings.global["chinese-bot-start"].value
-    if botLevel == "关闭" then
-        return
-    elseif botLevel == "简易" then
-        botCount = 50
 
-    elseif botLevel == "豪华" then
-        botCount = 200
+    local botCounts = {
+        ["关闭"] = 1,
+        ["简易"] = 50,
+        ["豪华"] = 200,
+        ["尊享"] = 400
+    }
 
-    elseif botLevel == "尊享" then
-        botCount = 400
-
-    end
+    storage.chinese_botCount = botCounts[botLevel] or 1
 end
 
 if settings.global["chinese-bot-start"] and settings.global["chinese-bot-start"].value then

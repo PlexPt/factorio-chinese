@@ -12,7 +12,7 @@ if open then
         ['cargo-wagon'] = defines.inventory.cargo_wagon,
     }
 
-    MyEvent.on_event(defines.events.on_tick, function()
+    MyEvent.on_event(defines.events.on_gui_opened, function()
         for _, player in pairs(game.connected_players) do
             if player.opened_gui_type == gui_type then
                 local inventory = prototypes[player.opened.type]

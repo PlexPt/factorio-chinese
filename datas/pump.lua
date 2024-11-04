@@ -5,10 +5,14 @@ if enable then
     if not pump then
         return
     end
+    pump.tile_buildability_rules = nil;
 
-    pump.adjacent_tile_collision_test = { 'ground-tile', 'water-tile', 'object-layer' }
-    pump.adjacent_tile_collision_mask = nil;
-    pump.placeable_position_visualization = nil;
-    pump.flags = { 'placeable-neutral', 'player-creation' }
-    pump.adjacent_tile_collision_box = { { -0.5, -0.25 }, { 0.5, 0.25 } }
+    --pump.adjacent_tile_collision_test = { 'ground-tile', 'water-tile', 'object-layer' }
+    --pump.adjacent_tile_collision_mask = nil;
+    --pump.placeable_position_visualization = nil;
+    --pump.flags = { 'placeable-neutral', 'player-creation' }
+    --pump.adjacent_tile_collision_box = { { -0.5, -0.25 }, { 0.5, 0.25 } }
+
+    --pump.collision_mask = { layers = {} }
+
 end
