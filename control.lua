@@ -117,6 +117,8 @@ end)
 
 --require("runtime.gui")
 
+require("runtime.skip-crash")
+
 require("runtime.reach")
 
 require("runtime.bag")

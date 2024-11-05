@@ -96,6 +96,16 @@ data:extend({
 data:extend({
     {
         type = "bool-setting",
+        name = "chinese-skip-crashsite",
+        setting_type = "startup",
+        order = "aaa",
+        default_value = false
+    }
+})
+
+data:extend({
+    {
+        type = "bool-setting",
         name = "chinese-fast-mining",
         setting_type = "startup",
         order = "gg",
