@@ -1,13 +1,16 @@
 local function fix_resources(surface, area)
-    resources = surface.find_entities_filtered {
+    local resources = surface.find_entities_filtered {
         area = area,
         type = 'resource',
     }
     for _, resource in pairs(resources) do
         if resource.prototype.infinite_resource then
-            -- set all new resources to exactly their normal amount
-            resource.initial_amount = resource.prototype.normal_resource_amount
-            resource.amount = resource.prototype.normal_resource_amount
+            -- only modify resources if their current amount is less than normal_resource_amount
+            -- 仅在当前数量小于正常资源量时进行修改
+            if resource.amount < resource.prototype.normal_resource_amount then
+                resource.initial_amount = resource.prototype.normal_resource_amount
+                resource.amount = resource.prototype.normal_resource_amount
+            end
         end
     end
 end
