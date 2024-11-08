@@ -33,10 +33,23 @@ function far_reach_apply_settings()
         -- 恢复原始距离加成值
         for _, player in pairs(game.players) do
             if player and player.character and storage.original_distances[player.index] then
-                player.character_build_distance_bonus = player.character_build_distance_bonus - distance
-                player.character_reach_distance_bonus = player.character_reach_distance_bonus - distance
-                player.character_resource_reach_distance_bonus = player.character_resource_reach_distance_bonus - distance
-                player.character_item_drop_distance_bonus = player.character_item_drop_distance_bonus - distance
+                local newbuild = player.character_build_distance_bonus - distance
+                if newbuild > 1 then
+                    player.character_build_distance_bonus = newbuild
+                end
+                local newreach = player.character_reach_distance_bonus - distance
+                if newreach > 1 then
+                    player.character_reach_distance_bonus = player.character_reach_distance_bonus - distance
+                end
+                local resource_reach = player.character_resource_reach_distance_bonus - distance
+                if resource_reach > 1 then
+                    player.character_resource_reach_distance_bonus = resource_reach
+                end
+
+                local item_drop_distance = player.character_item_drop_distance_bonus - distance
+                if resource_reach > 1 then
+                    player.character_item_drop_distance_bonus = item_drop_distance
+                end
 
                 storage.original_distances[player.index] = nil
             end
