@@ -205,3 +205,17 @@ data:extend({
         default_value = "关闭"
     }
 })
+
+
+if mods['bobinserters'] then
+
+    data:extend({
+        {
+            type = "bool-setting",
+            name = "chinese-enable-bob",
+            setting_type = "startup",
+            order = "bob",
+            default_value = false
+        }
+    })
+end
