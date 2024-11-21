@@ -21,6 +21,7 @@ local function create_mod_info_panel(player)
     info_panel.style.maximal_height = 300
 
     info_panel.add { type = "label", caption = "Welcome to [Your Mod Name]!" }
+
     info_panel.add { type = "label", caption = "Basic Suggestions:" }
     info_panel.add { type = "label", caption = "- Do X to achieve Y" }
     info_panel.add { type = "label", caption = "- Press Z for more options" }

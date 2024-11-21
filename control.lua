@@ -7,7 +7,7 @@ MyEvent.on_event(defines.events.on_player_joined_game, function(event)
     local player = game.players[event.player_index]
     if player then
 
-        local msg = "[color=#FF00FF]在设置中也有一些方便的小功能可以使用，大部分不影响平衡。[/color]"
+        local msg = "[font=heading-1][color=#E99696]在设置中也有一些方便的小功能可以使用，大部分不影响平衡。[/color][/font]"
 
         if msg then
             player.print('[font=heading-1]' ..

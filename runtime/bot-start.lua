@@ -1,6 +1,5 @@
 storage.chinese_botCount = 1
 
-
 -- 配置文件
 local Config = {
     -- 基础装备原型定义

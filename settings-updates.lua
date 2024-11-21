@@ -1,0 +1,32 @@
+--
+--if not data.raw["bool-setting"]["chinese-free-loader"].value then
+--    return
+--end
+--
+--local function change_string(name, value)
+--    local settingitem = data.raw["string-setting"][name]
+--
+--    if settingitem then
+--
+--        settingitem.hidden = true
+--        settingitem.allowed_values = { value }
+--        settingitem.default_value = value
+--        settingitem.forced_value = value
+--    end
+--end
+--local function change_bool(name, value)
+--    local settingitem = data.raw["bool-setting"][name]
+--
+--    if settingitem then
+--
+--        settingitem.hidden = true
+--        settingitem.allowed_values = { value }
+--        settingitem.default_value = value
+--        settingitem.forced_value = value
+--    end
+--end
+--
+--change_string("aai-loaders-mode", "expensive")
+--change_string("aai-loaders-lubricant-recipe", "auto")
+--
+--change_bool("mdrn-use-electricity", false)

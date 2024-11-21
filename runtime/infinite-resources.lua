@@ -6,6 +6,7 @@ local function fix_resources(surface, area)
     for _, resource in pairs(resources) do
         if resource.prototype.infinite_resource then
             -- only modify resources if their current amount is less than normal_resource_amount
+
             -- 仅在当前数量小于正常资源量时进行修改
             if resource.amount < resource.prototype.normal_resource_amount then
                 resource.initial_amount = resource.prototype.normal_resource_amount

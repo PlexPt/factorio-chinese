@@ -1,7 +1,6 @@
 local open = settings.global["chinese-chest-auto-sort"] and settings.global["chinese-chest-auto-sort"].value
 if open then
 
-
     local gui_type = defines.gui_type.entity
     local prototypes = {
         ['container'] = defines.inventory.chest,

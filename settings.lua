@@ -206,6 +206,27 @@ data:extend({
     }
 })
 
+-- 电线杆增强
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-enable-pole",
+        setting_type = "startup",
+        order = "dxg",
+        default_value = false
+    }
+})
+
+-- 装卸机增强
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-free-loader",
+        setting_type = "startup",
+        order = "zxj",
+        default_value = false
+    }
+})
 
 if mods['bobinserters'] then
 

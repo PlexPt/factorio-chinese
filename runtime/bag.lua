@@ -17,6 +17,7 @@ local function stack_size(item)
 end
 
 -- 计算物品栏中的物品堆叠数
+
 -- 计算库存中所有物品所需的总堆叠数
 local function inventory_stacks(inventory)
     local contents = inventory.get_contents() -- 获取库存的物品内容

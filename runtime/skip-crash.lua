@@ -4,6 +4,7 @@ if open then
 
     MyEvent.on_init(function()
 
+
         local freeplay = remote.interfaces["freeplay"]
         if freeplay then
             if freeplay["set_skip_intro"] then
