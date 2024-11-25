@@ -103,31 +103,36 @@ end
 
 -- 检查是否启用 "chinese-reach-enable" 设置
 
-local open = settings.global["chinese-smart-bag"] and settings.global["chinese-smart-bag"].value
 
-if open then
+MyEvent.on_event(defines.events.on_player_main_inventory_changed, function(event)
+    local open = settings.global["chinese-smart-bag"] and settings.global["chinese-smart-bag"].value
 
-    MyEvent.on_event(defines.events.on_player_main_inventory_changed, function(event)
+    if open then
+
         local player = game.players[event.player_index]
         if player and player.valid and player.connected and player.character then
 
             changeInventorySlots(player)
         end
-    end)
+    end
+end)
 
 
-    -- 每 600 个 tick 检查全局表中的玩家是否可以更改物品栏
-    script.on_nth_tick(600, function(event)
+-- 每 600 个 tick 检查全局表中的玩家是否可以更改物品栏
+script.on_nth_tick(600, function(event)
+    local open = settings.global["chinese-smart-bag"] and settings.global["chinese-smart-bag"].value
+
+    if open then
         for _, player in pairs(game.players) do
             -- 检查玩家是否满足条件，如果满足则更改物品栏
             if player and player.valid and player.connected and player.character then
                 changeInventorySlots(player)
             end
         end
-    end)
+    end
+end)
 
 
-end
 
 --/sc game.player.print(game.player.character_inventory_slots_bonus)
 --/sc game.player.print(game.player.connected)

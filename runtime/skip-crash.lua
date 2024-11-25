@@ -1,9 +1,8 @@
-local open = settings.global["chinese-skip-crashsite"] and settings.global["chinese-skip-crashsite"].value
-if open then
 
+MyEvent.on_init(function()
+    local open = settings.global["chinese-skip-crashsite"] and settings.global["chinese-skip-crashsite"].value
 
-    MyEvent.on_init(function()
-
+    if open then
 
         local freeplay = remote.interfaces["freeplay"]
         if freeplay then
@@ -15,7 +14,7 @@ if open then
                 remote.call("freeplay", "set_disable_crashsite", true)
             end
         end
-    end)
+    end
+end)
 
 
-end

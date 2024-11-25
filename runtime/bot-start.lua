@@ -272,32 +272,41 @@ local function check_bot_level()
     storage.chinese_botCount = botCounts[botLevel] or 1
 end
 
-if settings.global["chinese-bot-start"] and settings.global["chinese-bot-start"].value then
-    local botLevel = settings.global["chinese-bot-start"].value
+check_bot_level()
 
-    check_bot_level()
+-- 初始化脚本
+MyEvent.on_init(function(event)
+    local open = settings.global["chinese-bot-start"] and settings.global["chinese-bot-start"].value
+    if open then
 
-    -- 初始化脚本
-    MyEvent.on_init(function(event)
         -- 初始化模组管理器
         ModManager:init()
+    end
 
-    end)
+end)
 
-    -- 注册玩家创建事件
-    MyEvent.on_event(defines.events.on_player_created, function(event)
+-- 注册玩家创建事件
+MyEvent.on_event(defines.events.on_player_created, function(event)
+    local open = settings.global["chinese-bot-start"] and settings.global["chinese-bot-start"].value
+    if open then
+        check_bot_level()
+
         local player = game.get_player(event.player_index)
 
         ArmorManager:equipArmor(player, true)
+    end
+end)
 
-    end)
+-- 注册过场动画结束事件
+MyEvent.on_event(defines.events.on_cutscene_cancelled, function(event)
+    local open = settings.global["chinese-bot-start"] and settings.global["chinese-bot-start"].value
+    if open then
 
-    -- 注册过场动画结束事件
-    MyEvent.on_event(defines.events.on_cutscene_cancelled, function(event)
         local player = game.get_player(event.player_index)
         ArmorManager:equipArmor(player, true)
-    end)
-end
+
+    end
+end)
 
 MyEvent.on_event(defines.events.on_runtime_mod_setting_changed, function(event)
     if event and event.setting and event.setting == "chinese-bot-start"
