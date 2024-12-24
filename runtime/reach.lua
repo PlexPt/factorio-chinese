@@ -56,7 +56,6 @@ function far_reach_apply_settings()
         end
     end
 end
-require("runtime.list")
 
 function hook_space_exploration()
     -- 检查是否启用 space-exploration 模组以及相关接口
