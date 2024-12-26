@@ -250,3 +250,13 @@ data:extend({
         default_value = false
     }
 })
+
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-enable-armors-fly",
+        setting_type = "startup",
+        order = "ddd",
+        default_value = false
+    }
+})
