@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.23.1
+Date: 2024-12-26
+  Changes:
+    - 翻译 大量新mod MOARInserters airchest configurable-solar-and-accu inserter-cranes-fork more-belts powerful-laser-turret sniper-rifle-improved FasterStart
+
+---------------------------------------------------------------------------------------------------
 Version: 2.23.0
 Date: 2024-12-13
   Bugfixes:
