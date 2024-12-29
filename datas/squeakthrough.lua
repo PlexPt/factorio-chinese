@@ -1,142 +1,209 @@
+-- MIT
+-- Squeak Through 2
+-- by _CodeGreen
+
+
 local enable = settings.startup["chinese-squeakthrough-enable"].value
 if not enable then
     return
 end
-require "datas.config"
 
+local const = require "datas.config"
+local cmu = require("collision-mask-util")
 
--- Prototype names and types to not alter.
-local excluded_prototype_names = {}
-local excluded_prototype_types = {}
+local character = data.raw.character.character
 
+local character_box = character.collision_box --[[@as data.BoundingBox]]
+character_box[1][1] = character_box[1][1] + 1 / 256
+character_box[1][2] = character_box[1][2] + 1 / 256
+character_box[2][1] = character_box[2][1] - 1 / 256
+character_box[2][2] = character_box[2][2] - 1 / 256
 
--- Helper functions to check if a prototype name or type is excluded.
-local function prototype_name_excluded(name)
-    return excluded_prototype_names[name]
+---@type table<string, boolean>
+local disabled_types = {}
+for group, ptypes in pairs(const.groups) do
+    for _, ptype in pairs(ptypes) do
+        disabled_types[ptype] = false
+    end
 end
-local function prototype_type_excluded(type)
-    return excluded_prototype_types[type]
+
+---@return table<string, true>
+local function parse_csv(setting)
+    ---@cast setting string
+    local values = {}
+    for value in setting:gmatch("([^,]+)") do
+        values[value:match("^%s*(.-)%s*$")] = true
+    end
+    return values
 end
 
+local blacklist_types = parse_csv("")
+local blacklist_names = parse_csv("")
 
--- Returns true when an exclusion should be applied or false otherwise.
-local function exclusion_applies(exclusion)
+local remove_collision = false
+local remove_types = parse_csv("tree")
+local remove_names = parse_csv("")
 
-    -- Exclusions always apply if no apply_when_object_exists is specified.
-    if not exclusion.apply_when_object_exists then
-        return true
-    else
-        -- Exclusions apply when the apply_when_object_exists object actually exists.
-        if data.raw[exclusion.apply_when_object_exists.type][exclusion.apply_when_object_exists.name] then
-            return true
+---@type table<string, table<string, data.EntityPrototype>>
+local downgrades = {}
+
+for ptype in pairs(defines.prototypes.entity) do
+    local prototypes = data.raw[ptype]
+    if not prototypes then
+        goto continue
+    end
+    for name, prototype in pairs(prototypes) do
+        if prototype.next_upgrade then
+            local downgrade = downgrades[prototype.next_upgrade] or {}
+            downgrades[prototype.next_upgrade] = downgrade
+            downgrade[name] = prototype
         end
     end
-
-    -- The apply_when_object_exists object didn't exist (the mod which the exclusion was for is not active).
-    return false
+    :: continue ::
 end
 
+local character_mask = cmu.get_mask(character)
 
--- Update the exclusion arrays by parsing an exclusion (from config.lua).
-local function apply_exclusion(exclusion)
+---@param entity data.EntityPrototype
+local function remove_colliding_layers(entity)
+    local mask = cmu.get_mask(entity)
+    for layer in pairs(character_mask.layers) do
+        mask.layers[layer] = nil
+    end
+    return mask
+end
 
-    if exclusion.excluded_prototype_names then
-        for _, n in pairs(exclusion.excluded_prototype_names) do
-            excluded_prototype_names[n] = true
-        end
+removed_layers = {}
+
+---@param prototype data.EntityPrototype
+local function remove_player_collision(prototype)
+    if removed_layers[prototype.name] then
+        return
+    end
+    removed_layers[prototype.name] = true
+
+    prototype.collision_mask = remove_colliding_layers(prototype)
+
+    if prototype.next_upgrade then
+        local next_upgrade = data.raw[prototype.type][prototype.next_upgrade]
+        remove_player_collision(next_upgrade)
     end
 
-    if exclusion.excluded_prototype_types then
-        for _, t in pairs(exclusion.excluded_prototype_types) do
-            excluded_prototype_types[t] = true
+    if downgrades[prototype.name] then
+        for _, downgrade in pairs(downgrades[prototype.name]) do
+            remove_player_collision(downgrade)
         end
     end
 end
 
-
--- Parse the exclusions defined in config.lua only applying those which are applicable.
-local function apply_exclusions()
-    for _, e in pairs(c_exclusions) do
-        if exclusion_applies(e) then
-            apply_exclusion(e)
-        end
-    end
+---@param n number
+---@param override number?
+local function trim(n, override)
+    local max_trim = override or 0.3
+    local sign = n >= 0 and 1 or -1
+    n = n * sign
+    local base = math.floor(n * 2) / 2
+    local decimal = math.fmod(n, 0.5)
+    local new_decimal = math.min(max_trim, decimal)
+    return (base + new_decimal) * sign
 end
 
+local prototypes = cmu.collect_prototypes_colliding_with_mask(cmu.get_mask(character))
+---@cast prototypes data.EntityPrototype[]
+for _, prototype in pairs(prototypes) do
 
--- Returns a coordinate reduced where required to form the specified gap between it and the tile boundary.
-local function adjust_coordinate_to_form_gap(coordinate, required_gap)
-
-    -- Treat all coordinates as positive to simplify calculations.
-    local is_negative_coordinate = (coordinate < 0)
-    if is_negative_coordinate then
-        coordinate = coordinate * -1
+    if remove_collision and remove_names[prototype.name] then
+        remove_player_collision(prototype)
+        goto continue
+    end
+    if blacklist_names[prototype.name] then
+        goto continue
     end
 
-    local tile_width = 0.5
-
-    -- Calculate the existing gap (how much space there is to the next tile edge or 0 when the coordinate lies on a tile edge).
-    local distance_past_last_tile_edge = coordinate % tile_width -- This is how far the collision box extends over any tile edge, and should be 0 for a perfect fit.
-    local existing_gap = 0
-    if distance_past_last_tile_edge > 0 then
-        existing_gap = (tile_width - distance_past_last_tile_edge)
+    if remove_collision and remove_types[prototype.type] then
+        remove_player_collision(prototype)
+        goto continue
+    end
+    if blacklist_types[prototype.type] then
+        goto continue
     end
 
-    -- Reduce the coordinate to make the gap large enough if it is not already.
-    if existing_gap < required_gap then
-        coordinate = coordinate + existing_gap - required_gap
-        if coordinate < 0 then
-            coordinate = 0
-        end
+    ---@diagnostic disable-next-line: undefined-field
+    if prototype.squeak_behaviour == false then
+        goto continue
     end
 
-    -- Make the coordinate negative again if it was originally negative.
-    if is_negative_coordinate then
-        coordinate = coordinate * -1
+    local is_disabled = disabled_types[prototype.type]
+    if is_disabled ~= false then
+        goto continue
     end
 
-    return coordinate
-end
+    local collision_box = prototype.collision_box
+    if not collision_box then
+        goto continue
+    end
 
-
--- Checks all existing prototypes listed in prototype_type_gap_requirements and reduces their collision box to make a gap large enough to walk though if it is not already.
-local function adjust_collision_boxes()
-    for prototype_type, required_gap in pairs(c_prototype_type_gap_requirements) do
-
-        -- Don't shrink prototypes of this type if they've been excluded.
-        if not prototype_type_excluded(prototype_type) then
-            for prototype_name, prototype in pairs(data.raw[prototype_type]) do
-
-                -- If the prototype is not excluded and has a collision box, and if it does not opt out, then resize it.
-                local exclude_entity = false
-                if data.raw[prototype_type][prototype_name].squeak_behaviour == false then
-                    -- not the same as "not data.raw..." because we don't want this to happen if there's no set value
-                    exclude_entity = true
-                end
-
-                if (not exclude_entity) and (not prototype_name_excluded(prototype_name)) and prototype["collision_box"] then
-
-                    if prototype.collision_box.lefttop then
-                        prototype.collision_box.lefttop[1] = adjust_coordinate_to_form_gap(prototype.collision_box.lefttop[1], required_gap)
-                        prototype.collision_box.rightbottom[1] = adjust_coordinate_to_form_gap(prototype.collision_box.rightbottom[1], required_gap)
-                        prototype.collision_box.lefttop[2] = adjust_coordinate_to_form_gap(prototype.collision_box.lefttop[2], required_gap)
-                        prototype.collision_box.rightbottom[2] = adjust_coordinate_to_form_gap(prototype.collision_box.rightbottom[2], required_gap)
-                    else
-                        for y = 1, 2 do
-                            for x = 1, 2 do
-                                prototype.collision_box[x][y] = adjust_coordinate_to_form_gap(prototype.collision_box[x][y], required_gap)
-                            end
-                        end
-                    end
-
-                end
+    local flags = prototype.flags
+    if flags and prototype.type ~= "tree" then
+        for _, flag in pairs(flags) do
+            if flag == "placeable-off-grid" then
+                goto continue
             end
         end
     end
+
+    local lt, rb = collision_box[1], collision_box[2]
+    local values = {
+        ltx = lt.x or lt[1],
+        lty = lt.y or lt[2],
+        rbx = rb.x or rb[1],
+        rby = rb.y or rb[2]
+    }
+
+    local override = const.overrides[prototype.type]
+    local modified = false
+    for name, value in pairs(values) do
+        local new_value = trim(value, override)
+        if new_value ~= value then
+            values[name] = new_value
+            modified = true
+        end
+    end
+
+    if modified then
+        prototype.map_generator_bounding_box = collision_box
+        prototype.collision_box = { { values.ltx, values.lty }, { values.rbx, values.rby } }
+    end
+
+    :: continue ::
 end
 
--- Exclude prototypes from alteration for mods that have compatibility issues with modified collision boxes.
-apply_exclusions()
+--require("compatibility")
+--------------------
+local cmu = require("collision-mask-util")
 
--- Make the adjustments.
-adjust_collision_boxes()
+-- IndustrialRevolution3
+do
+    local distance = 1.2 - 1 / 256
+
+    local vaporiser = data.raw["furnace"]["steel-vaporiser"]
+    if vaporiser then
+        vaporiser.fluid_boxes[1].pipe_connections[1].position[1] = -distance
+        vaporiser.fluid_boxes[2].pipe_connections[1].position[1] = distance
+    end
+
+    local cleaner = data.raw["assembling-machine"]["steel-cleaner"]
+    if cleaner then
+        cleaner.fluid_boxes[1].pipe_connections[1].position[2] = -distance
+        cleaner.fluid_boxes[2].pipe_connections[1].position[2] = distance
+    end
+end
+
+-- RealisticReactors
+do
+    local prototype = data.raw["constant-combinator"]["realistic-reactor-interface"]
+    if prototype then
+        prototype.collision_mask = cmu.get_mask(prototype)
+        cmu.remove_layer(prototype.collision_mask, "player-layer")
+    end
+end

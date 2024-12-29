@@ -201,7 +201,7 @@ data:extend({
         name = "chinese-bot-start",
         setting_type = "runtime-global",
         order = "jiqi",
-        allowed_values = {"关闭", "简易", "豪华", "尊享"},
+        allowed_values = { "关闭", "简易", "豪华", "尊享" },
         default_value = "关闭"
     }
 })
@@ -240,3 +240,23 @@ if mods['bobinserters'] then
         }
     })
 end
+
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-enable-filter-chest",
+        setting_type = "startup",
+        order = "ccc",
+        default_value = false
+    }
+})
+
+data:extend({
+    {
+        type = "bool-setting",
+        name = "chinese-enable-armors-fly",
+        setting_type = "startup",
+        order = "ddd",
+        default_value = false
+    }
+})
