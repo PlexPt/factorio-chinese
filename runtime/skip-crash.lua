@@ -4,15 +4,13 @@ MyEvent.on_init(function()
 
     if open then
 
-        local freeplay = remote.interfaces["freeplay"]
-        if freeplay then
-            if freeplay["set_skip_intro"] then
-                remote.call("freeplay", "set_skip_intro", true)
-            end
+        local freeplay = remote.interfaces["freeplay"] or {}
+        if freeplay["set_skip_intro"] then
+            remote.call("freeplay", "set_skip_intro", true)
+        end
 
-            if freeplay["set_disable_crashsite"] then
-                remote.call("freeplay", "set_disable_crashsite", true)
-            end
+        if freeplay["set_disable_crashsite"] then
+            remote.call("freeplay", "set_disable_crashsite", true)
         end
     end
 end)

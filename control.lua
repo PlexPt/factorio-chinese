@@ -55,7 +55,7 @@ MyEvent.on_event(defines.events.on_player_joined_game, function(event)
                     '[color=#E9A296]已[/color]' ..
                     '[color=#E9AF96]汉[/color]' ..
                     '[color=#E9BB96]化[/color]' ..
-                    '[color=#E9C896]。[/color]' ..
+                    '[color=#E9C896]。[/color]\n' ..
                     '[color=#E9D496]如[/color]' ..
                     '[color=#E9E096]果[/color]' ..
                     '[color=#E5E996]您[/color]' ..
