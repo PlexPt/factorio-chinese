@@ -13,6 +13,7 @@
 2. Github 不能上的可以使用国内的Gitee镜像 https://gitee.com/plexpt/factorio-chinese
 3. 不会Git的，可以在任何能联系到我的渠道提交问题和更新
 4. 文件命名为mod的 name字段.cfg， 不用带版本号
+5. 提交commit 的msg title 需要遵守规范 https://github.com/fgardt/factorio-mod-template?tab=readme-ov-file#how-it-works  例如 feat: 新增XX的翻译
 
 ## Acknowledgements
 
