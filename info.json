@@ -1,15 +1,15 @@
 {
-    "name": "chinese",
-    "version": "2.80.1",
-    "title": "开源中文汉化语言包",
-    "author": "plexpt",
-    "contact": "QQ汉化群：830846580",
-    "homepage": "https://github.com/plexpt",
-    "description": "开源汉化文本库，已经校对了1000+个mod的汉化。覆盖了所有下载量大于1000的mod，您可以在我们的更新日志和mod详情页中查看最新的更新内容。如果您需要专用的汉化，可以在依赖列表中按需下载。如果您对我们的汉化感兴趣，欢迎加入我们的汉化群830846580交流讨论。此外，我们还有专业的团队负责校对，保证汉化的质量。因此，选择我们的mod，可以让您更加轻松地享受Factorio的游戏体验。",
-    "factorio_version": "2.0",
-    "dependencies": [
-        "(?) zhcnremake",
-        "? aotixpy",
-        "? IndustrialRevolution_Language_Pack"
-    ]
+  "name": "chinese",
+  "version": "1.0.0",
+  "title": "开源中文汉化语言包",
+  "author": "plexpt",
+  "contact": "QQ汉化群：830846580",
+  "homepage": "https://github.com/plexpt",
+  "description": "开源汉化文本库，已经校对了1000+个mod的汉化。覆盖了所有下载量大于1000的mod，您可以在我们的更新日志和mod详情页中查看最新的更新内容。如果您需要专用的汉化，可以在依赖列表中按需下载。如果您对我们的汉化感兴趣，欢迎加入我们的汉化群830846580交流讨论。此外，我们还有专业的团队负责校对，保证汉化的质量。因此，选择我们的mod，可以让您更加轻松地享受Factorio的游戏体验。",
+  "factorio_version": "2.0",
+  "dependencies": [
+    "(?) zhcnremake",
+    "? aotixpy",
+    "? IndustrialRevolution_Language_Pack"
+  ]
 }
