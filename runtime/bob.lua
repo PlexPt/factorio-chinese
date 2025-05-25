@@ -4,7 +4,7 @@ end
 
 function bob_research(event)
     for i, force in pairs(game.forces) do
-        for j, tech in pairs({ "long-inserters-1", "long-inserters-2", "near-inserters", "more-inserters-1", "more-inserters-2" }) do
+        for j, tech in pairs({ "bob-long-inserters-1", "bob-long-inserters-2", "bob-near-inserters", "bob-more-inserters-1", "bob-more-inserters-2" }) do
             if force.technologies[tech] and not force.technologies[tech].researched then
                 force.technologies[tech].researched = true
                 force.technologies[tech].enabled = false
