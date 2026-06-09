@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.94.0
+Date: 2026-06-09
+  Features:
+    - ArtilleryCombinator提交
+    - cloud-city提交
+    - ElectricTransmissionTower提交
+    - FTL-Ships更新
+    - orbital-cannon提交
+    - outer-rim 1.2.0更新
+    - smoke-shell提交
+  Bugfixes:
+    - cloud-city、outer-rim修正
+    - outer-rim修正
+    - smoke-shell修正
+---------------------------------------------------------------------------------------------------
 Version: 2.93.0
 Date: 2026-03-15
   Features:
