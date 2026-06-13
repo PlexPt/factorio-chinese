@@ -1,4 +1,21 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.95.0
+Date: 2026-06-13
+  Features:
+    - Accumulator-V2、SolarMatrix提交
+    - elevated-pipes提交
+    - Paracelsin更新
+    - science-tab提交
+    - secretas更新
+  Bugfixes:
+    - Accumulator-V2、SolarMatrix修复
+    - ArtilleryCombinator、ElectricTransmissionTower重复键移除
+    - outer-rim优化
+    - Paracelsin修复
+    - secretas修复
+    - 按照Volcanic Rock格式翻译
+    - 改为仅注释重复键
+---------------------------------------------------------------------------------------------------
 Version: 2.94.0
 Date: 2026-06-09
   Features:
