@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 2.96.0
+Date: 2026-06-15
+  Features:
+    - FusionPoweredRobots提交
+    - skewer_planet_vesta更新
+  Bugfixes:
+    - Paracelsin、secretas介绍文本格式
+    - science-tab优化
+    - science-tab改回，还是为了避免和technology撞
+    - skewer_planet_vesta修复
+---------------------------------------------------------------------------------------------------
 Version: 2.95.0
 Date: 2026-06-13
   Features:
