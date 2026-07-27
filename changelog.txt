@@ -1,4 +1,15 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.3.0
+Date: 2026-07-27
+  Features:
+    - frozeta-nuclear-winter与heat-inserter提交，outer-rim修复
+    - linox、skewer_planet_vesta更新
+    - pre-heated_exchanger提交
+    - SA-Juggernaut与SA-Nuclear-Juggernaut提交
+    - Unloading_Bay_Range_Tech、Various_Asteroid_Grabbers、Various_Cargo_Bays提交
+  Bugfixes:
+    - skewer_planet_vesta紧急修复
+---------------------------------------------------------------------------------------------------
 Version: 3.2.1
 Date: 2026-07-12
   Bugfixes:
