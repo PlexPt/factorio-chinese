@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 3.18.0
+Date: 2026-10-26
+  Features:
+    - apia更新
+    - carna、Paracelsin、planet-crucible、panglia-planet、kry-asteroid-belt、orbital-cannon、rigor-module、LithiumBattery更新
+    - carna修正
+    - carna更名
+    - kry-asteroid-belt提交
+    - panglia_planet更新
+    - panglia更新
+    - Paracelsin更新
+    - Return-Inserter提交
+---------------------------------------------------------------------------------------------------
 Version: 3.17.0
 Date: 2026-09-13
   Features:
